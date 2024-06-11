@@ -1,0 +1,69 @@
+ALPHA = 0.1
+Server: Metriche: {'acc': 0.716136675644314, 'f1-weighted': 0.6521789320665922, 'f1-macro': 0.4002745063148881}Valore ece : [0.08739113]
+Media clients: Metriche: {'acc': 0.5113084423081036, 'f1-weighted': 0.4372941987996052, 'f1-macro': 0.20803781887925007}Valore ece : [0.31665324]
+Server: Metriche: {'acc': 0.8465427205443538, 'f1-weighted': 0.844027976061085, 'f1-macro': 0.5592903922056294}Valore ece : [0.09541453]
+Media clients: Metriche: {'acc': 0.585926265261816, 'f1-weighted': 0.4925252234632258, 'f1-macro': 0.31916346738476364}Valore ece : [0.28384864]
+Server: Metriche: {'acc': 0.8713880091974779, 'f1-weighted': 0.8543823193094693, 'f1-macro': 0.622105253312041}Valore ece : [0.15998675]
+Media clients: Metriche: {'acc': 0.48889545430067677, 'f1-weighted': 0.40763647418611626, 'f1-macro': 0.28864700554077327}Valore ece : [0.36852095]
+Server: Metriche: {'acc': 0.8189524996145587, 'f1-weighted': 0.7584782338111903, 'f1-macro': 0.35137976247270003}Valore ece : [0.07875381]
+Media clients: Metriche: {'acc': 0.4258895579707419, 'f1-weighted': 0.3620659436298421, 'f1-macro': 0.16823117057066228}Valore ece : [0.44892132]
+Server: Metriche: {'acc': 0.7875115540182165, 'f1-weighted': 0.7453038780270543, 'f1-macro': 0.483457774815815}Valore ece : [0.12679427]
+Media clients: Metriche: {'acc': 0.5473497498135498, 'f1-weighted': 0.4828427594583891, 'f1-macro': 0.27512994791981493}Valore ece : [0.30057591]
+
+ALPHA = 0.3
+Server: Metriche: {'acc': 0.8372109835650776, 'f1-weighted': 0.8162482743004085, 'f1-macro': 0.6727328301691725}Valore ece : [0.1306743]
+Media clients: Metriche: {'acc': 0.7090429326292852, 'f1-weighted': 0.6529235709940479, 'f1-macro': 0.4995467215906541}Valore ece : [0.15902675]
+Server: Metriche: {'acc': 0.9123288843447387, 'f1-weighted': 0.8935868706186777, 'f1-macro': 0.7525708313552475}Valore ece : [0.04814791]
+Media clients: Metriche: {'acc': 0.804259476876841, 'f1-weighted': 0.7608941462612415, 'f1-macro': 0.6181792159295025}Valore ece : [0.12867852]
+Server: Metriche: {'acc': 0.9417057825048742, 'f1-weighted': 0.9412709882442158, 'f1-macro': 0.8440073504994233}Valore ece : [0.04450412]
+Media clients: Metriche: {'acc': 0.8518210165470507, 'f1-weighted': 0.8310358009032857, 'f1-macro': 0.7039548009154872}Valore ece : [0.0835907]
+Server: Metriche: {'acc': 0.947498098612485, 'f1-weighted': 0.9461673960836066, 'f1-macro': 0.6998386032943447}Valore ece : [0.01930874]
+Media clients: Metriche: {'acc': 0.9178693542069167, 'f1-weighted': 0.9114886712537151, 'f1-macro': 0.6441642862900813}Valore ece : [0.05185501]
+Server: Metriche: {'acc': 0.9374707230583901, 'f1-weighted': 0.9350973598484261, 'f1-macro': 0.763882595197672}Valore ece : [0.03617264]
+Media clients: Metriche: {'acc': 0.8889042327726177, 'f1-weighted': 0.8734083567321536, 'f1-macro': 0.6609388775468703}Valore ece : [0.08583315]
+
+ALPHA = 0.5
+Server: Metriche: {'acc': 0.9044776846079453, 'f1-weighted': 0.8859781306102404, 'f1-macro': 0.7442150134003581}Valore ece : [0.05793722]
+Media clients: Metriche: {'acc': 0.8721335153944153, 'f1-weighted': 0.8596290665979838, 'f1-macro': 0.6881165791063767}Valore ece : [0.08600388]
+Server: Metriche: {'acc': 0.9360410861994306, 'f1-weighted': 0.9351325986993203, 'f1-macro': 0.8435113170819502}Valore ece : [0.03897136]
+Media clients: Metriche: {'acc': 0.875512046792944, 'f1-weighted': 0.8610150444270402, 'f1-macro': 0.7367445486045632}Valore ece : [0.07826935]
+Server: Metriche: {'acc': 0.9452747108452488, 'f1-weighted': 0.9449537339366245, 'f1-macro': 0.8482394470862381}Valore ece : [0.03698264]
+Media clients: Metriche: {'acc': 0.9094276362525809, 'f1-weighted': 0.9025313138239769, 'f1-macro': 0.7688285325590358}Valore ece : [0.06126351]
+Server: Metriche: {'acc': 0.9475121146601219, 'f1-weighted': 0.9454567134524492, 'f1-macro': 0.7953264470854838}Valore ece : [0.03623346]
+Media clients: Metriche: {'acc': 0.8999812627573697, 'f1-weighted': 0.8896783796094869, 'f1-macro': 0.7354386753641576}Valore ece : [0.06651932]
+Server: Metriche: {'acc': 0.8346519483412745, 'f1-weighted': 0.8353051271479568, 'f1-macro': 0.6699227466106779}Valore ece : [0.08675467]
+Media clients: Metriche: {'acc': 0.7541398609755612, 'f1-weighted': 0.7213689789606247, 'f1-macro': 0.5498859449175416}Valore ece : [0.14928866]
+
+ALPHA = 0.7
+Server: Metriche: {'acc': 0.9409680957871449, 'f1-weighted': 0.9383668930366712, 'f1-macro': 0.8180631859585181}Valore ece : [0.01737193]
+Media clients: Metriche: {'acc': 0.9345975808301781, 'f1-weighted': 0.9306551045378784, 'f1-macro': 0.7917221991103177}Valore ece : [0.04349017]
+Server: Metriche: {'acc': 0.9414675096950477, 'f1-weighted': 0.9402329016844311, 'f1-macro': 0.82637598400635}Valore ece : [0.02646906]
+Media clients: Metriche: {'acc': 0.937793018385366, 'f1-weighted': 0.9360186659607752, 'f1-macro': 0.7924199800888754}Valore ece : [0.04618544]
+Server: Metriche: {'acc': 0.9560729690193709, 'f1-weighted': 0.955232453089393, 'f1-macro': 0.8466576287552791}Valore ece : [0.0233068]
+Media clients: Metriche: {'acc': 0.946629693808374, 'f1-weighted': 0.9460517289405722, 'f1-macro': 0.8301974259490745}Valore ece : [0.03038772]
+Server: Metriche: {'acc': 0.9296342770559514, 'f1-weighted': 0.9240554901951552, 'f1-macro': 0.7475817394802803}Valore ece : [0.03998903]
+Media clients: Metriche: {'acc': 0.9199626140371455, 'f1-weighted': 0.9144033222877301, 'f1-macro': 0.7177584819756625}Valore ece : [0.06131021]
+Server: Metriche: {'acc': 0.9512470225119856, 'f1-weighted': 0.9506246168820923, 'f1-macro': 0.8533662895853338}Valore ece : [0.03095306]
+Media clients: Metriche: {'acc': 0.9426319481789834, 'f1-weighted': 0.9427915036493018, 'f1-macro': 0.8337075196632462}Valore ece : [0.04167982]
+
+ALPHA = 0.9
+Server: Metriche: {'acc': 0.9111803061252342, 'f1-weighted': 0.8930974433536318, 'f1-macro': 0.6890261376717441}Valore ece : [0.05732183]
+Media clients: Metriche: {'acc': 0.8886773203382441, 'f1-weighted': 0.8641698263481947, 'f1-macro': 0.6621244720233167}Valore ece : [0.07051924]
+Server: Metriche: {'acc': 0.9219615975048484, 'f1-weighted': 0.9209905068289137, 'f1-macro': 0.8428496065705297}Valore ece : [0.04764243]
+Media clients: Metriche: {'acc': 0.9134845443567334, 'f1-weighted': 0.9134966579120493, 'f1-macro': 0.8026004095597171}Valore ece : [0.066864]
+Server: Metriche: {'acc': 0.9499693491168784, 'f1-weighted': 0.9496948157043659, 'f1-macro': 0.8653483867595961}Valore ece : [0.02743873]
+Media clients: Metriche: {'acc': 0.9347727814256386, 'f1-weighted': 0.934497691937983, 'f1-macro': 0.8488086499853109}Valore ece : [0.03287136]
+Server: Metriche: {'acc': 0.9578397287083327, 'f1-weighted': 0.9571804925773413, 'f1-macro': 0.8592002903312762}Valore ece : [0.01615427]
+Media clients: Metriche: {'acc': 0.951954390305616, 'f1-weighted': 0.9515427381025727, 'f1-macro': 0.8426183902534076}Valore ece : [0.03024404]
+Server: Metriche: {'acc': 0.9309466217267918, 'f1-weighted': 0.9302089643027284, 'f1-macro': 0.720448237757527}Valore ece : [0.04861594]
+Media clients: Metriche: {'acc': 0.927838452510311, 'f1-weighted': 0.9265752437031125, 'f1-macro': 0.715921961792889}Valore ece : [0.05069331]
+
+
+
+Server: Metriche: {'acc': 0.936822296433506, 'f1-weighted': 0.9359685009047523, 'f1-macro': 0.8144436698493445}Valore ece : [0.03252501]
+Media clients: Metriche: {'acc': 0.9215880329509905, 'f1-weighted': 0.9206977803447977, 'f1-macro': 0.789475536417383}Valore ece : [0.03773836]
+My_model: Metriche: {'acc': 0.5683064704715072, 'f1-weighted': 0.43930120400182326, 'f1-macro': 0.15892960823975275}Valore ece : [0.00879049]
+
+Server: Metriche: {'acc': 0.9437277817981704, 'f1-weighted': 0.9428525710605699, 'f1-macro': 0.7709113780554675}Valore ece : [0.03718394]
+Media clients: Metriche: {'acc': 0.9181810268451572, 'f1-weighted': 0.9125129661115168, 'f1-macro': 0.7430846391682334}Valore ece : [0.04952918]
+My_model: Metriche: {'acc': 0.5682120465716378, 'f1-weighted': 0.4373162970657953, 'f1-macro': 0.15837821364081467}Valore ece : [0.22918697]
