@@ -570,7 +570,7 @@ class Calibrator(nn.Module):
         #x = self.fc(x)#x*a +b sigmoide(x)
         #x = 1 / (1 + torch.exp(-(self.a * x + self.b)))
         x = self.a*x +self.b 
-        x = torch.sigmoid(x)
+        x = torch.sigmoid(-x)
         sum_x = torch.sum(x, dim=1, keepdim=True)  # Calcola la somma degli elementi del vettore
         x = x / sum_x
         return x
