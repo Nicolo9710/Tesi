@@ -32,5 +32,7 @@ Bisogna usare 2 terminal:
       - ricordarsi di aggiornare il valore di alpha nell'algoritmo per le partizioni e impostare correttamente il percorso file per salvare le Dmatrix.
 
 completate queste operazioni si passa alla valutazione del calibratore federato:
+
 ricordasi di commentare le righe 173 - 177 del file server.py nella cartella flwr/server. poi da terminal chiamare MyFedAvg.py. 
-  (qui ricordarsi il valore di alpha da settare per leggere le partizioni corrette, impostare learning rate, numero di epoche globali e locali per addestramento)
+
+(qui ricordarsi il valore di alpha da settare per leggere le partizioni corrette, impostare learning rate, numero di epoche globali e locali per addestramento)
