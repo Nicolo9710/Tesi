@@ -1,4 +1,0 @@
-struttura del db -> utile per chi ci lavora 
-( only:
-    - master;)
-
