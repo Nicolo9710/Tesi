@@ -554,86 +554,93 @@ def fit_client_calibrator(client: ClientProxy, ins: FitIns, timeout: Optional[fl
     return client, fit_res
 
 
-class Calibrator(nn.Module):
-    def __init__(self, input_size, output_size):
-        super(Calibrator, self).__init__()
-        self.fc = nn.Linear(input_size, output_size, bias=False)
-        self.fc.weight.data = torch.eye(input_size)  # Initialize with identity matrix
-        self.fc.weight.requires_grad = False
-        self.a = nn.Parameter(torch.ones(input_size))  # Initialize a as ones
-        self.b = nn.Parameter(torch.ones(input_size))  # Initialize b as zeros
-        # self.a = torch.nn.init.xavier_normal_(self.a, gain=1.0, generator=None) #-> xavier solo per vettori multidimensionali
-        nn.init.normal_(self.a, mean=0.0, std=0.1)  # Inizializza a con distribuzione normale
-        nn.init.normal_(self.b, mean=0.0, std=0.1)
+ # class Calibrator(nn.Module):
+ #        def __init__(self, input_size, output_size):
+ #            super(Calibrator, self).__init__()
+ #            self.fc = nn.Linear(input_size, output_size, bias=False)
+ #            self.fc.weight.data = torch.eye(input_size)  # Initialize with identity matrix
+ #            self.fc.weight.requires_grad = False
+ #            self.a = nn.Parameter(torch.ones(input_size))  # Initialize a as ones
+ #            self.b = nn.Parameter(torch.ones(input_size))  # Initialize b as zeros
+ #            # self.a = torch.nn.init.xavier_normal_(self.a, gain=1.0, generator=None) #-> xavier solo per vettori multidimensionali
+ #            nn.init.normal_(self.a, mean=0.0, std=0.1)  # Inizializza a con distribuzione normale
+ #            nn.init.normal_(self.b, mean=0.0, std=0.1)
 
-    def forward(self, x):
-        #x = self.fc(x)#x*a +b sigmoide(x)
-        #x = 1 / (1 + torch.exp(-(self.a * x + self.b)))
-        x = self.a*x +self.b 
-        x = torch.sigmoid(-x)
-        sum_x = torch.sum(x, dim=1, keepdim=True)  # Calcola la somma degli elementi del vettore
-        x = x / sum_x
-        return x
+ #        def forward(self, x):
+ #            #x = self.fc(x)#x*a +b sigmoide(x)
+ #            #x = 1 / (1 + torch.exp(-(self.a * x + self.b)))
+ #            x = self.a*x +self.b 
+ #            x = torch.sigmoid(-x)
+ #            sum_x = torch.sum(x, dim=1, keepdim=True)  # Calcola la somma degli elementi del vettore
+ #            x = x / sum_x
+ #            return x
 
-    def get_parameters(self):
-        tensor_str_a = ' '.join([str(self.a[i].item()) for i in range(self.a.numel())])
-        tensor_str_b = ' '.join([str(self.b[i].item()) for i in range(self.b.numel())])
-        combined_str = f"{tensor_str_a};{tensor_str_b}"
-        bytes_obj = combined_str.encode('utf-8')
-        # a = tf.io.serialize_tensor(self.a)
-        return bytes_obj
-
-    def set_parameters(self, a_params, b_params):
-        with torch.no_grad():
-            self.a.copy_(torch.tensor(a_params))
-            self.b.copy_(torch.tensor(b_params))
-
-
-from sklearn.base import BaseEstimator, ClassifierMixin
-
-class MyCalibrator(BaseEstimator, ClassifierMixin):
-    def __init__(self, base_model, input_size, output_size, lr=0.2, epochs=100):
-        self.base_model = base_model
-        self.calibrator = Calibrator(input_size, output_size)
-        self.lr = lr
-        self.epochs = epochs
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.calibrator.to(self.device)
-        self.is_fitted_ = False
-        self.classes_ = None
-
-    def fit(self, X, y):
-        # Get the predicted probabilities from the base model
-        base_preds = self.base_model.predict_proba(X)
-        X_calib, y_calib = torch.FloatTensor(base_preds).to(self.device), torch.LongTensor(y).to(self.device)
+ #        def get_parameters(self):
+ #            # tensor_str_a = ' '.join([str(self.a[i].item()) for i in range(self.a.numel())])
+ #            # tensor_str_b = ' '.join([str(self.b[i].item()) for i in range(self.b.numel())])
+ #            # combined_str = f"{tensor_str_a};{tensor_str_b}"
+ #            # bytes_obj = combined_str.encode('utf-8')
+ #            # # a = tf.io.serialize_tensor(self.a)
+ #            # return bytes_obj
+ #            return [self.a.detach().numpy(), self.b.detach().numpy()]
         
-        criterion = nn.CrossEntropyLoss()
-        optimizer = optim.Adam(self.calibrator.parameters(), lr=self.lr)
+ #        def set_parameters(self, a_params, b_params):
+ #            with torch.no_grad():
+ #                self.a.copy_(torch.tensor(a_params))
+ #                self.b.copy_(torch.tensor(b_params))
 
-        for epoch in range(self.epochs):
-            self.calibrator.train()
-            optimizer.zero_grad()
-            outputs = self.calibrator(X_calib)
-            loss = criterion(outputs, y_calib)
-            loss.backward()
-            optimizer.step()
+
+ #    from sklearn.base import BaseEstimator, ClassifierMixin
+
+ #    class MyCalibrator(BaseEstimator, ClassifierMixin):
+ #        def __init__(self, base_model, input_size, output_size, lr=0.15, epochs=3):
+ #            self.base_model = base_model
+ #            self.calibrator = Calibrator(input_size, output_size)
+ #            self.lr = lr
+ #            self.epochs = epochs
+ #            self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+ #            self.calibrator.to(self.device)
+ #            self.is_fitted_ = False
+ #            self.classes_ = None
+
+ #        def fit(self, X, y):
+ #            # Get the predicted probabilities from the base model
+ #            base_preds = self.base_model.predict_proba(X) 
+ #            X_calib, y_calib = torch.FloatTensor(base_preds).to(self.device), torch.LongTensor(y).to(self.device)
+ #            criterion = nn.CrossEntropyLoss()
+ #            #optimizer = optim.Adam(self.calibrator.parameters(), lr=self.lr)
+ #            optimizer = torch.optim.RMSprop(self.calibrator.parameters(), lr=self.lr)
+ #            #scheduler = lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
+            
+ #            for epoch in range(self.epochs):
+ #                self.calibrator.train()
+ #                optimizer.zero_grad()
+ #                outputs = self.calibrator(X_calib)
+ #                loss = criterion(outputs, y_calib)
+ #                loss.backward()
+ #                optimizer.step()
+ #                #scheduler.step()
+
+ #            self.classes_ = np.unique(y)
+ #            self.is_fitted_ = True
+ #            return self
+
+
+ #        def predict_proba(self, X):
+ #            self.calibrator.eval()
+ #            with torch.no_grad():
+ #                # Get the predicted probabilities from the base model
+ #                base_preds = self.base_model.predict_proba(X)
+ #                X_calib = torch.FloatTensor(base_preds).to(self.device)
+ #                outputs = self.calibrator(X_calib)
+ #            return outputs.cpu().numpy()    
         
-        self.classes_ = np.unique(y)
-        self.is_fitted_ = True
-        return self
-
-
-    def predict_proba(self, X):
-        self.calibrator.eval()
-        with torch.no_grad():
-            # Get the predicted probabilities from the base model
-            base_preds = self.base_model.predict_proba(X)
-            X_calib = torch.FloatTensor(base_preds).to(self.device)
-            outputs = self.calibrator(X_calib)
-        return outputs.cpu().numpy()    
-    
-    def get_parameters(self):
-        return self.calibrator.get_parameters()
-    
-    def set_parameters(self,a_params, b_params)  -> None:
-         self.calibrator.set_parameters(a_params, b_params)
+ #        def predict(self, X):
+ #            proba = self.predict_proba(X)
+ #            return np.argmax(proba, axis=1)
+        
+ #        def get_parameters(self):
+ #            return self.calibrator.get_parameters()
+        
+ #        def set_parameters(self,a_params, b_params)  -> None:
+ #            self.calibrator.set_parameters(a_params, b_params)
